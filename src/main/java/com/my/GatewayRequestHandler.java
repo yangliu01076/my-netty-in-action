@@ -97,7 +97,7 @@ public class GatewayRequestHandler extends SimpleChannelInboundHandler<FullHttpR
         response.headers().set(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes());
 
         // 非Keep-Alive则写完即关
-//        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
+//        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE); // 写完数据则关闭连接
         ctx.writeAndFlush(response);
     }
 
